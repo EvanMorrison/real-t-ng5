@@ -12,6 +12,7 @@ import { AppMaterialDesignModule } from './/app-material-design.module';
 import { AuthService } from './user/auth.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './user/token.interceptor';
+import { AuthGuard } from './user/auth-guard.service';
 
 
 @NgModule({
@@ -31,8 +32,9 @@ import { TokenInterceptor } from './user/token.interceptor';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
-      multi: true
-    }
+      multi: true,
+    },
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

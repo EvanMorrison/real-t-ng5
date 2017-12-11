@@ -1,5 +1,6 @@
 export interface User {
-  displayName: string;
+  name: string;
   email: string; 
   role: string;
+  provider: string;
 }

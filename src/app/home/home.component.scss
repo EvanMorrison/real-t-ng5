@@ -12,7 +12,7 @@
       width: 100%;
       height: 100%;
         /* image of city skyline */
-      background: linear-gradient(to right,rgba($primary,.4), rgba(0,0,250,.5)), url('../../assets/architecture-1867077_960.jpg');
+      background: linear-gradient(to right,rgba($primary,.5), rgba($primary-lt,.3)), url('../../assets/architecture-1867077_960.jpg');
       background-repeat: no-repeat;
       background-position: top center, bottom center;
       background-size: cover;
@@ -24,7 +24,7 @@
         left: 5vw;
         padding: 18px;
         border: 2px solid white;
-        background-color: rgba($primary-dk, .5);
+        background-color: rgba($primary-lt, .9);
         div {
           margin-bottom: 0;
         }

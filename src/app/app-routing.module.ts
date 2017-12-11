@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { SigninComponent } from './user/signin.component';
+import { SignInComponent } from './user/signin.component';
+import { AuthGuard } from './user/auth-guard.service';
 
 import { AppMaterialDesignModule } from './app-material-design.module';
 
@@ -13,7 +14,12 @@ import { AppMaterialDesignModule } from './app-material-design.module';
     RouterModule.forRoot([
       { path: '', redirectTo: 'home', pathMatch: 'full'},
       { path: 'home', component: HomeComponent },
-      { path: 'signin', component: SigninComponent },
+      { path: 'signin', component: SignInComponent },
+      { 
+        path: 'rt', 
+        canLoad: [ AuthGuard ],
+        loadChildren: 'app/mainContainer/main-container.module#MainContainerModule',
+      },
       { path: '**', redirectTo: 'home' }
     ])
   ],
@@ -21,8 +27,8 @@ import { AppMaterialDesignModule } from './app-material-design.module';
     RouterModule
   ],
   declarations: [
-    SigninComponent,
-    HomeComponent
+    SignInComponent,
+    HomeComponent,
   ]
 })
 export class AppRoutingModule { }

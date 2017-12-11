@@ -23,15 +23,17 @@ export class AuthService {
   signIn(email: string, password: string): Observable<any> {
     let user = {email, password };
     return this.http.post('/auth/signin', user)
-    .do((response: User) => {
-      console.log('signed in: ', response);
-      this.user = response;
+    .do((res: User) => {
+      console.log('signed in: ', res);
+      this.user = res
+      this.user.name = res.name || res.email.slice(0,res.email.indexOf('@'));
     })
     .catch(this.handleError);
   }
 
-  signout(): void {
+  signOut(): void {
     this.user = null;
+    this.removeToken();
   }
 
   private handleError(error: HttpResponse<any[]>): Observable<any> {

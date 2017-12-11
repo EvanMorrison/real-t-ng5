@@ -10,8 +10,8 @@ import 'rxjs/add/operator/catch';
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.scss']
 })
-export class SigninComponent implements OnInit {
-  showSignin = true;
+export class SignInComponent implements OnInit {
+  showSignIn = true;
 
   constructor(private authService: AuthService,
               private router: Router) { }

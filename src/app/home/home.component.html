@@ -13,7 +13,8 @@
 <!-- homepage body content -->
 <section class="homepage-body">
   <div class="row row-end top-row">
-    <a mat-button [routerLink]="['/signin']">user: {{user?.name}} / sign in</a>
+    <a *ngIf="!authService.user" mat-button (click)="onSignIn()">sign in / sign up</a>
+    <a *ngIf="authService.user" mat-button (click)="onSignOut()">user: {{authService.user?.name}} / sign out</a>
   </div>
   <div class="row main-row">
     <div class="column col-center">
