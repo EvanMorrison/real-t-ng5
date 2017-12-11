@@ -11,10 +11,12 @@ import { MatAutocompleteModule, MatButtonModule, MatCardModule, MatCheckboxModul
 @NgModule({
   imports: [
     CommonModule,
-    MatButtonModule, MatCardModule, MatIconModule, MatToolbarModule,
+    MatButtonModule, MatCardModule, MatIconModule, MatMenuModule, MatSidenavModule,
+     MatToolbarModule,
   ],
   exports: [
-    MatButtonModule, MatCardModule, MatIconModule, MatToolbarModule,
+    MatButtonModule, MatCardModule, MatIconModule, MatMenuModule, MatSidenavModule,
+     MatToolbarModule,
   ],
   declarations: []
 })

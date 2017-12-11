@@ -32,8 +32,10 @@ export class AuthService {
   }
 
   signOut(): void {
-    this.user = null;
-    this.removeToken();
+    this.http.get('/auth/signout')
+    .subscribe(res => {
+      this.user = null;
+    })
   }
 
   private handleError(error: HttpResponse<any[]>): Observable<any> {
@@ -42,21 +44,14 @@ export class AuthService {
 
 
   /**
-   *  Auth token methods
+   *  Auth token method
    */
-
-  setToken(token: string): void {
-    document.cookie = "token=" + token;
-  }
 
   getToken(): string {
     let tokenCookie = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*\=\s*([^;]*).*$)|^.*$/, "$1");
     return tokenCookie;
   }
 
-  removeToken(): void {
-    document.cookie = "token= ; max-age=0";
-  }
 
   /**
    *  Cache failed requests caused by expired tokens to resend automatically

@@ -27,6 +27,12 @@ router.use(passport.initialize());
     res.redirect('http://localhost:4200/home');
   }
 
+  // clearTokenCookies onn sign out
+  router.get('/signout', (req, res) => {
+    res.cookie('token', 'remove this cookie', { maxAge: 0 });
+    res.send(res.user);
+  });
+
 
 router.post('/signup', function(req, res, next) {
       passport.authenticate('local-signup', { 

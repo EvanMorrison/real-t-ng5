@@ -20,7 +20,7 @@ import { AppMaterialDesignModule } from './app-material-design.module';
         canLoad: [ AuthGuard ],
         loadChildren: 'app/mainContainer/main-container.module#MainContainerModule',
       },
-      { path: '**', redirectTo: 'home' }
+      { path: '**', component: SignInComponent }
     ])
   ],
   exports: [
