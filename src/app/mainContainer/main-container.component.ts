@@ -23,11 +23,10 @@ export class MainContainerComponent implements OnInit {
   constructor(private authService: AuthService,
               private router: Router,
               private route: ActivatedRoute) { 
-
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
         let childComponent = event.url.split('/')[2];
-        console.log('fragment ', childComponent);
+        // console.log('fragment ', childComponent);
         this.setChildTheme(childComponent);
       }
     })

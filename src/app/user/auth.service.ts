@@ -5,7 +5,9 @@ import { HttpClient, HttpRequest, HttpResponse } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/delay';
 import 'rxjs/add/observable/throw';
 
 @Injectable()
@@ -22,12 +24,13 @@ export class AuthService {
 
   signIn(email: string, password: string): Observable<any> {
     let user = {email, password };
-    return this.http.post('/auth/signin', user)
+    return this.http.post('/auth/signin', user).delay(2000)
     .do((res: User) => {
       console.log('signed in: ', res);
       this.user = res
       this.user.name = res.name || res.email.slice(0,res.email.indexOf('@'));
     })
+    .map(data => data)
     .catch(this.handleError);
   }
 

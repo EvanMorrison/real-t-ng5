@@ -1,0 +1,8 @@
+@import '../variables';
+
+mat-spinner.loading-spinner.mat-primary.mat-spinner.mat-progress-spinner.mat-progress-spinner-indeterminate-animation {
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  z-index: 100;
+}

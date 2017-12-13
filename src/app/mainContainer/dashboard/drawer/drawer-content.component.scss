@@ -1,0 +1,10 @@
+@import '../../../../variables';
+
+:host {
+  .casenum {
+    display: block;
+  &.active {
+    background-color: rgba($primary-lt,.6)
+  }
+  }
+}

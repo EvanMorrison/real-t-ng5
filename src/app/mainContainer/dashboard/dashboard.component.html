@@ -12,10 +12,9 @@
         </button>
       </mat-toolbar>
       <div class="drawer-contents">
-        <p>
-          This is the case drawer
-        </p>
-        <rt-drawer-content></rt-drawer-content>
+        <rt-drawer-content
+              [cases]="cases">
+        </rt-drawer-content>
       </div>
     </mat-drawer>
     <mat-drawer-content>
@@ -24,6 +23,6 @@
               (click)="drawer.toggle()">
         <mat-icon class="icon-menu"></mat-icon>
       </button>
-      <rt-case-focus></rt-case-focus>
+      <router-outlet></router-outlet>
     </mat-drawer-content>
   </mat-drawer-container>

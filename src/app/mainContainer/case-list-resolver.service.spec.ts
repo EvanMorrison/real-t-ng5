@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { CaseListResolverService } from './case-list-resolver.service';
+import { CaseListResolver } from './case-list-resolver.service';
 
-describe('CaseListResolverService', () => {
+describe('CaseListResolver', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CaseListResolverService]
+      providers: [CaseListResolver]
     });
   });
 
-  it('should be created', inject([CaseListResolverService], (service: CaseListResolverService) => {
+  it('should be created', inject([CaseListResolver], (service: CaseListResolver) => {
     expect(service).toBeTruthy();
   }));
 });

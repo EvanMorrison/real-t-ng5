@@ -9,8 +9,9 @@ import { CaseListComponent } from './case-list/case-list.component';
 import { AppMaterialDesignModule } from '../app-material-design.module';
 import { DrawerContentComponent } from './dashboard/drawer/drawer-content.component';
 import { CaseFocusComponent } from './dashboard/caseFocus/case-focus.component';
-import { CaseListResolverService } from './case-list-resolver.service';
 import { CaseService } from './case.service';
+import { CaseListResolver } from './case-list-resolver.service';
+import { CaseResolver } from './case-resolver.service';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { CaseService } from './case.service';
       {
         path: '',
         component: MainContainerComponent,
-        resolve: { cases: CaseListResolverService },
+        resolve: { cases: CaseListResolver },
         children: [
           {
             path: '',
@@ -30,7 +31,13 @@ import { CaseService } from './case.service';
           },
           {
             path: 'dashboard',
-            component: DashboardComponent
+            component: DashboardComponent,
+            children: [
+              { path: '', component: CaseFocusComponent, pathMatch: 'full'},
+              { path: ':id', component: CaseFocusComponent, 
+                resolve: { caseRecord: CaseResolver }
+              }
+            ]
           },
           {
             path: 'casesetup',
@@ -54,6 +61,10 @@ import { CaseService } from './case.service';
     DrawerContentComponent,
     CaseFocusComponent
   ],
-  providers: [CaseListResolverService, CaseService]
+  providers: [
+    CaseService,
+    CaseListResolver,
+    CaseResolver, 
+  ]
 })
 export class MainContainerModule { }

@@ -12,6 +12,7 @@ import 'rxjs/add/operator/catch';
 })
 export class SignInComponent implements OnInit {
   showSignIn = true;
+  waiting = false;
 
   constructor(private authService: AuthService,
               private router: Router) { }
@@ -20,10 +21,12 @@ export class SignInComponent implements OnInit {
   }
 
   signIn(event): void {
+    this.waiting = true;
     event.stopPropagation();
     console.log('signing in');
     this.authService.signIn('evan@email.com', 'evan')
     .subscribe(data => {
+      this.waiting = false;
       if (this.authService.isSignedIn()) {
         this.router.navigate(['/home']);
       }
@@ -31,6 +34,7 @@ export class SignInComponent implements OnInit {
         console.log('problem logging in ', data);
       }
     }, err => {
+      this.waiting = false;
       console.log('login error ', err);
     })
   }
