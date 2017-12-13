@@ -1,0 +1,39 @@
+<!-- hero -->
+<div class="hero-container">
+  <div class="hero-title-block">
+    <div class="mat-display-4">REAL-T</div>
+    <h3 class="mat-subheading-2">Real Estate Lending Tracker with Real Time Database</h3>
+  </div>
+  <div class="hero-text">
+    <p class="mat-display-1">Welcome!</p>
+    <p class="mat-headline">{{welcomeMessage}}</p>
+  </div>
+</div>
+
+<!-- homepage body content -->
+<section class="homepage-body">
+  <div class="row row-end top-row">
+    <a *ngIf="!authService.user" mat-button (click)="onSignIn()">sign in / sign up</a>
+    <a *ngIf="authService.user" mat-button (click)="onSignOut()">user: {{authService.user?.name}} / sign out</a>
+  </div>
+  <div class="row main-row">
+    <div class="column col-center">
+      <a [routerLink]="['/rt/caselist']">
+        <h1 class="mat-display-1">List All Cases</h1>
+        <mat-icon class="icon-view_list home-icon"></mat-icon>
+      </a>
+    </div>
+    <div class="column col-center">
+      <a [routerLink]="['/rt/dashboard']">
+        <h1 class="mat-display-1">Case Dashboard</h1>
+        <mat-icon class="icon-chrome_reader_mode home-icon"></mat-icon>
+      </a>
+    </div>
+    <div class="column col-center">
+      <a [routerLink]="['/rt/casesetup']">
+        <h1 class="mat-display-1">Case Setup</h1>
+        <mat-icon class="icon-create_new_folder home-icon"></mat-icon>
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,9 @@
+<h1 *ngIf="!cr">Select a Case</h1>
+<div *ngIf="cr">
+  <h3>Case: {{cr.caseNum}} / {{cr.lender[0].orgDisplayName || cr.lender[0].displayName}}
+     / {{cr.borrower[0].orgDisplayName || cr.borrower[0].displayName}} / {{cr.property[0].address1}}
+  </h3>
+  <p>
+    {{cr.caseNum}}
+  </p>
+</div>

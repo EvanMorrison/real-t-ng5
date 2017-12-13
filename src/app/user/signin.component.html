@@ -1,0 +1,45 @@
+<mat-spinner *ngIf="waiting" color="primary"></mat-spinner>
+<div class="hero-title-block">
+  <h1 class="mat-display-4">REAL-T</h1>
+  <h3 class="mat-subheading-1">Real Estate Lending Tracker Wtih Real-Time Database</h3>
+</div>
+
+<div class="signin-container">
+  <mat-toolbar class="mat-primary">
+    <div class="signin-heading">REAL-T: <small>Sign In or Sign Up</small></div>
+  </mat-toolbar>
+  <mat-card>
+    <mat-card-content class="column">
+      <a mat-raised-button 
+         color="warn" 
+         class="signin-btn"
+         href="auth/google"
+         target=" ">
+        <mat-icon class="icon-google"></mat-icon>
+        Google
+      </a>
+      <div class="form-container">
+        <p *ngIf="showSignIn">Sign In With Email Address
+          <br/><small>already have an account? <a href="">sign in here</a></small>
+        </p>
+        <p *ngIf="!showSignIn">Sign Up With Email Address
+          <br/><small>already have an account? <a href="">sign up here</a></small>
+        </p>
+        <!-- sign in form -->
+        <form>
+        </form>
+        <button mat-raised-button color="warn" 
+                class="signin-btn"
+                type="submit"
+                (click)="signIn($event)">
+                SIGN IN
+        </button>
+
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div>
+  <button mat-raised-button color="primary" [routerLink]="['/home']">Home</button>
+</div>

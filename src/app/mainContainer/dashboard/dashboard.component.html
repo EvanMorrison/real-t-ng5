@@ -1,0 +1,28 @@
+<mat-drawer-container>
+    <mat-drawer class="mat-elevation-z1"
+                mode="side" 
+                opened="true"
+                #drawer>
+      
+      <mat-toolbar class="drawer-toolbar">
+        <span>Cases</span>
+        <button mat-icon-button
+                (click)=drawer.close()>
+          <mat-icon class="icon-close"></mat-icon>
+        </button>
+      </mat-toolbar>
+      <div class="drawer-contents">
+        <rt-drawer-content
+              [cases]="cases">
+        </rt-drawer-content>
+      </div>
+    </mat-drawer>
+    <mat-drawer-content>
+      <button mat-icon-button
+              *ngIf="!drawer.opened"
+              (click)="drawer.toggle()">
+        <mat-icon class="icon-menu"></mat-icon>
+      </button>
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>

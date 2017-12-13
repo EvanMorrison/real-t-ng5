@@ -1,0 +1,39 @@
+<nav class="row row-justified navbar">
+  <div>
+    <button mat-button [matMenuTriggerFor]="menu" class="app-name">REAL-T</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>View Input Forms from Legacy App</button>
+    </mat-menu>
+  </div>
+
+  <div>
+    <button mat-button 
+            [routerLink]="['/home']"
+            routerLinkActive="active">Home</button>
+    <button mat-button 
+            [routerLink]="['/rt/caselist']"
+            routerLinkActive="active">Case List</button>
+    <button mat-button 
+            [routerLink]="['/rt/dashboard']"
+            routerLinkActive="active">Dashboard</button>
+    <button mat-button 
+            [routerLink]="['/rt/casesetup']"
+            routerLinkActive="active">Case Setup</button>
+  </div>
+
+  <div>
+    <button mat-button (click)="onSignOut()">user: {{authService.user?.name}} / sign out</button>
+  </div>
+</nav>
+<div>
+  <mat-toolbar class="mat-elevation-z2" >
+    <button mat-icon-button
+            *ngIf="showTBMenuButton">
+      <mat-icon class="icon-menu"></mat-icon></button>
+    {{toolbarTitle}}
+  </mat-toolbar>
+  
+  <router-outlet>
+  </router-outlet>
+
+</div>

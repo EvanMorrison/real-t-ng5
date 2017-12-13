@@ -1,0 +1,23 @@
+@import '../../../variables';
+
+
+mat-drawer-container {
+  height: calc(100vh - 130px);
+  mat-drawer {
+    .drawer-toolbar {
+      background-color: $primary-lt;
+      color: $text-primary-dk;
+      font-weight: 300;
+      button {
+        position: absolute;
+        right: 5px;
+      }
+    }
+    .drawer-contents {
+      padding: 10px;
+    }
+  }
+  mat-drawer-content {
+    padding: 20px;
+  }
+}

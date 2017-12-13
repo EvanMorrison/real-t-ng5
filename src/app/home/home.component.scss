@@ -1,0 +1,72 @@
+@import '../../variables';
+:host {
+  position: relative;
+  .hero-container {
+    position: relative;
+    width: 100vw;
+    height: 50vh;
+    color: $white;
+    &::before {
+      position: absolute;
+      content: ' ';
+      width: 100%;
+      height: 100%;
+        /* image of city skyline */
+      background: linear-gradient(to right,rgba($primary,.5), rgba($primary-lt,.3)), url('../../assets/architecture-1867077_960.jpg');
+      background-repeat: no-repeat;
+      background-position: top center, bottom center;
+      background-size: cover;
+      z-index: -1;
+    }
+      .hero-title-block {
+        position: absolute;
+        top: 35px;
+        left: 5vw;
+        padding: 18px;
+        border: 2px solid white;
+        background-color: rgba($primary-lt, .9);
+        div {
+          margin-bottom: 0;
+        }
+      }
+      .hero-text {
+        position: absolute;
+        width: 500px;
+        margin: auto;
+        left: 0;
+        right: 0;
+        text-align: center;
+        bottom: 24px;
+        p {
+          margin: 12px auto;
+        }
+      }
+  }
+
+  .homepage-body {
+    .main-row {
+      margin-top: 100px;
+    a {
+      text-decoration: none;
+      color: rgba($text-primary-dk,.75);
+    }
+    .column.col-center {
+      text-align: center;
+      h1 {
+        margin-bottom: 0;
+      }
+    }
+    }
+    .home-icon {
+      position: relative;
+      display: inline-block;
+      right: 0;
+      left: 0;
+      top: 20%;
+      transform: translateX(-200%);
+      margin: auto;
+      font-size: 7em;
+    }
+  }
+
+}
